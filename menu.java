@@ -39,7 +39,8 @@ public class menu {
                 m.Mostrar(l);
                 break;
             case 6:
-                System.out.println("pagina en mantenimiento");
+                exportar e = new exportar();
+                e.Exportararch(l);
                 break;
             case 7:
                 System.out.println("pagina en mantenimiento");

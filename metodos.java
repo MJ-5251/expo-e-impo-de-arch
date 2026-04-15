@@ -36,4 +36,28 @@ public class metodos {
         
     }
 
+    public obj consultarE (int cedula, LinkedList<obj> l){
+        obj o = new obj();
+        for (obj O : l) {
+            if (o.getCedula()== cedula) {
+                o.setCedula(cedula);
+                o.setNombre(O.getNombre());
+                o.setCarnet(O.getCarnet());
+            }
+        }
+        return o;
+    }
+    public LinkedList<obj> modificarE (int cedula, LinkedList<obj> l, Scanner sc){
+        
+        for (obj O : l) {
+            if (O.getCedula()== cedula) {
+                System.out.println("Ingrese el nombre");
+                O.setNombre(sc.next());
+                System.out.println("Ingrese el carnet");
+                O.setCarnet(sc.next());                
+            }
+        }
+        return l;
+    }
+
 }
