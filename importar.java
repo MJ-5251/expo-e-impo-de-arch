@@ -26,26 +26,21 @@ public class importar {
             }
             else if (linea.startsWith("Cedula: ")) {
                 if (o != null) {
+                    o.setCedula(Integer.parseInt(linea.substring(0)));
                     lista.add(o);
-                    
+                    o = null;
                 }
-                o.setCedula(Integer.parseInt(rutaArch));
                 
-            }
-            else if (linea.startsWith("Catnet: ")) {
-                if (o != null) {
-                    lista.add(o);
-                    
-                }
                 
             }
             
             
         }
-            
+            System.out.println("Archivo importado correctamente"); 
+        
         } catch (Exception e) {
-            // TODO: handle exception
+            e.printStackTrace();
         }    
-    
+        return lista;
     }
 }

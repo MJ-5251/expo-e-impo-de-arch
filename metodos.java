@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class metodos {
     public LinkedList<obj> llenarL (LinkedList<obj> l, Scanner sc){
+        validaciones v = new validaciones();
         boolean pedir = true;
         while (pedir) {
             obj o = new obj();
@@ -13,15 +14,21 @@ public class metodos {
             o.setCarnet(sc.next());
             System.out.println("Ingrese la cedula: ");
             o.setCedula(sc.nextInt());
-            l.add(o);
-            System.out.println("Desea seguir ingresando 1:si 2:no");
-            int opt = sc.nextInt();
-            if (opt == 2) {
+            if (v.validarC(o.getCedula(), l)) {
+                System.out.println("El estiudiante ya exixte, por favor valide");
+            } else{
+                l.add(o);
+                System.out.println("Desea seguir ingresando 1:si 2:no");
+                int opt = sc.nextInt();
+                if (opt == 2) {
                 pedir = false;
-                
+                    
             }
+            }
+           
         }
-
+            exportar e = new exportar();
+                e.Exportararch(l);
         return l;
     }
     
@@ -59,5 +66,11 @@ public class metodos {
         }
         return l;
     }
+
+    public LinkedList<obj> eliminar(int cedula, LinkedList<obj> l){
+        l.removeIf(x -> x.getCedula() == cedula);
+        return l;
+    }
+
 
 }
